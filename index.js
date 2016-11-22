@@ -10,6 +10,7 @@ module.exports = function(done) {
       try {
         process.kill(children[i].PID)
       } catch (e) {
+        debug(`cannot kill process ${children[i].COMM}: ${e.message}`)
         if (done) done(e)
         return
       }
