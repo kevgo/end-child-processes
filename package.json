@@ -1,6 +1,6 @@
 {
   "name": "end-child-processes",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Kevin Goslar",
   "dependencies": {
     "ps-tree": "1.1.0"
