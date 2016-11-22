@@ -1,0 +1,16 @@
+{
+  "name": "end-child-processes",
+  "version": "0.0.0",
+  "author": "Kevin Goslar",
+  "description": "Reliably ends all direct and indirect child processes of the current process",
+  "homepage": "https://github.com/kevgo/end-child-processes#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevgo/end-child-processes.git"
+  },
+  "scripts": {
+    "test": "bin/spec"
+  }
+}
