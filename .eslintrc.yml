@@ -6,6 +6,7 @@ rules:
   indent:
     - error
     - 2
+    - VariableDeclarator: 3
   linebreak-style:
     - error
     - unix
