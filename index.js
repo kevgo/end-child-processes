@@ -10,9 +10,10 @@ module.exports = function(done) {
       try {
         process.kill(children[i].PID)
       } catch (e) {
-        return done(e)
+        if (done) done(e)
+        return
       }
     }
-    done()
+    if (done) done()
   })
 }
