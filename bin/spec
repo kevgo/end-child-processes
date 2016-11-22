@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -e
+
+node_modules/.bin/eslint index.js
+node_modules/.bin/tut-run
