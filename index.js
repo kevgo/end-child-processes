@@ -7,7 +7,7 @@ module.exports = function(done) {
       try {
         process.kill(children[i].PID)
       } catch (e) {
-        return done(e)
+        // We don't care if certain processes cannot be killed here
       }
     }
     done()
