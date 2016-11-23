@@ -1,5 +1,6 @@
-# End-Child-Processes
+# End-Child-Processes [![Build Status](https://travis-ci.org/kevgo/end-child-processes.svg?branch=master)](https://travis-ci.org/kevgo/end-child-processes)
 > Reliably ends all direct and indirect child processes of the current process
+
 
 This library reliably ends all child processes (and their child processes)
 that were spawned by the current process,
