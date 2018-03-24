@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 set -e
 
-node_modules/.bin/eslint index.js
-DEBUG='*' node_modules/.bin/tut-run
+node_modules/.bin/standard
+DEBUG='*' node_modules/.bin/text-run
