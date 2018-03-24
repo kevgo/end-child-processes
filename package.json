@@ -7,8 +7,9 @@
   },
   "description": "Reliably ends all direct and indirect child processes of the current process",
   "devDependencies": {
-    "eslint": "3.10.2",
     "nitroglycerin": "1.1.2",
+    "prettier-standard": "8.0.0",
+    "standard": "11.0.1",
     "tertestrial": "0.3.2",
     "tutorial-runner": "0.0.18"
   },
