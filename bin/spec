@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-set -e
-
-node_modules/.bin/standard
-DEBUG='*' node_modules/.bin/text-run

@@ -24,6 +24,6 @@
     "url": "git+https://github.com/kevgo/end-child-processes.git"
   },
   "scripts": {
-    "test": "bin/spec"
+    "test": "make spec"
   }
 }
