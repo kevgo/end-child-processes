@@ -12,6 +12,13 @@ without ending the current process itself.
 npm install --save end-child-processes
 ```
 
+or
+
+```
+yarn add end-child-processes
+```
+
+
 ## Usage
 
 ```js
