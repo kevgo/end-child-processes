@@ -1,8 +1,8 @@
 const psTree = require('ps-tree')
 const debug = require('debug')('end-child-process')
 
-module.exports = function (done) {
-  psTree(process.pid, function (err, children) {
+module.exports = function(done) {
+  psTree(process.pid, function(err, children) {
     if (err) return done(err)
     for (var i = 0; i < children.length; i++) {
       if (children[i].COMM === 'ps') continue
