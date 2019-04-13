@@ -1,0 +1,4 @@
+--colors
+--recursive
+--reporter dot
+test/*-test.js
