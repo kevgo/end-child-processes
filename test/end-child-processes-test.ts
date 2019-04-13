@@ -26,7 +26,7 @@ describe('end-child-processes', () => {
  */
 function blockingCommand() {
   if (process.platform === 'win32') {
-    return 'pause'
+    return 'cmd /c pause'
   } else {
     return '(read foo)'
   }
