@@ -1,4 +1,6 @@
 --colors
+--require ts-node/register
 --recursive
---reporter dot
-test/*-test.js
+--reporter spec
+--slow 500
+test/*-test.ts

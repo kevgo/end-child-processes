@@ -1,3 +1,5 @@
+.PHONY: test
+
 build: clean    # builds for the current platform
 	@node_modules/.bin/tsc -p .
 
@@ -8,7 +10,7 @@ docs:   # runs the documentation tests
 	node_modules/.bin/text-run --offline --format dot
 
 fix:  # runs the fixers
-	node_modules/.bin/prettier --write '*.js'
+	node_modules/.bin/prettier --write 'src/*.ts'
 	node_modules/.bin/prettier --write "*.md"
 	node_modules/.bin/prettier --write "*.yml"
 
@@ -16,11 +18,11 @@ help:   # prints all make targets
 	@cat Makefile | grep '^[^ ]*:' | grep -v '.PHONY' | grep -v help | sed 's/:.*#/#/' | column -s "#" -t
 
 lint:   # runs all linters
-	node_modules/.bin/prettier -l "*.js"
-	node_modules/.bin/prettier -l "*.md"
-	node_modules/.bin/prettier -l "*.yml"
+	node_modules/.bin/prettier -l 'src/*.ts'
+	node_modules/.bin/prettier -l '*.md'
+	node_modules/.bin/prettier -l '*.yml'
 
-spec: lint tests docs   # runs all tests
+spec: lint test docs   # runs all tests
 
-tests:   # runs the unit tests
-	@node_modules/.bin/mocha "src/**/*-test.ts"
+test:   # runs the unit tests
+	@node_modules/.bin/mocha 'test/*-test.ts'

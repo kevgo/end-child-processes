@@ -27,12 +27,12 @@ The callback is run when all child processes have been terminated.
 #### set up your dev environment
 
 - add `bin` and `node_modules/.bin` to your `$PATH`
-- run `npm install`
+- run `yarn`
 
 #### run the tests
 
-- the tests are embedded into this readme file using [Tutorial Runner](https://github.com/Originate/tutorial-runner)
-- run `bin/spec` to execute the tests
+- run `make spec` to execute the tests
+- run `make help` to see all available Make commands
 
 ## Releated work
 
