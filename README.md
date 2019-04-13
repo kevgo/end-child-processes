@@ -18,7 +18,6 @@ or
 yarn add end-child-processes
 ```
 
-
 ## Usage
 
 ```js
