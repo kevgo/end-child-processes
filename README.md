@@ -39,7 +39,7 @@ The callback is run when all child processes have been terminated.
 
 #### run the tests
 
-- run `make spec` to execute the tests
+- run `make spec` to execute all tests
 - run `make help` to see all available Make commands
 
 ## Releated work
