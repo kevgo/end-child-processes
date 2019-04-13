@@ -12,6 +12,12 @@ without ending the current process itself.
 npm install --save end-child-processes
 ```
 
+or
+
+```
+yarn add end-child-processes
+```
+
 ## Usage
 
 ```js
@@ -33,7 +39,7 @@ The callback is run when all child processes have been terminated.
 
 #### run the tests
 
-- run `make spec` to execute the tests
+- run `make spec` to run all tests
 - run `make help` to see all available Make commands
 
 ## Releated work
