@@ -25,9 +25,9 @@ help:   # prints all make targets
 	@cat Makefile | grep '^[^ ]*:' | grep -v '.PHONY' | grep -v help | sed 's/:.*#/#/' | column -s "#" -t
 
 lint:   # runs all linters
-	node_modules$/.bin$/prettier -l 'src/*.ts'
-	node_modules$/.bin$/prettier -l '*.md'
-	node_modules$/.bin$/prettier -l '*.yml'
+	node_modules/.bin/prettier -l 'src/*.ts'
+	node_modules/.bin/prettier -l '*.md'
+	node_modules/.bin/prettier -l '*.yml'
 
 spec: lint test docs   # runs all tests
 
