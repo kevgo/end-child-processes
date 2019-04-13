@@ -1,4 +1,4 @@
 --colors
---require ts-node/register
 --recursive
 --reporter dot
+test/*-test.js

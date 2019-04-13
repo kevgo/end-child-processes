@@ -5,7 +5,7 @@ clean:   # Removes all build artifacts
 	@rm -rf dist
 
 docs:   # runs the documentation tests
-	node_modules/.bin/text-run
+	node_modules/.bin/text-run --offline --format dot
 
 fix:  # runs the fixers
 	node_modules/.bin/prettier --write '*.js'
@@ -20,4 +20,7 @@ lint:   # runs all linters
 	node_modules/.bin/prettier -l "*.md"
 	node_modules/.bin/prettier -l "*.yml"
 
-spec: lint docs   # runs all tests
+spec: lint tests docs   # runs all tests
+
+tests:   # runs the unit tests
+	@node_modules/.bin/mocha "src/**/*-test.ts"
