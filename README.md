@@ -28,21 +28,7 @@ const { endChildProcesses } = require('end-child-processes')
 await endChildProcesses()
 ```
 
-The callback is run when all child processes have been terminated.
-
-## Development
-
-#### set up your dev environment
-
-- add `bin` and `node_modules/.bin` to your `$PATH`
-- run `yarn`
-
-#### run the tests
-
-- run `make spec` to run all tests
-- run `make help` to see all available Make commands
-
-## Releated work
+## Related work
 
 There are a number of other libraries,
 but they either also kill the root process
@@ -50,3 +36,7 @@ or don't work:
 
 - [tree-kill](https://github.com/pkrumins/node-tree-kill): Kill all processes in the process tree, including the root process
 - [@jub3i/tree-kill](https://github.com/jub3i/tree-kill): Kill all processes in the process tree, including the root process
+
+## Development
+
+See the [developer guide](CONTRIBUTING.md).
