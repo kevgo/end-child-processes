@@ -25,4 +25,8 @@ lint:   # runs all linters
 spec: lint test docs   # runs all tests
 
 test: build   # runs the unit tests
-	@node_modules/.bin/mocha 'test/*-test.ts'
+	@node_modules/.bin/mocha
+
+test-win:
+	@node_modules\\.bin\\tsc -p .
+	@node_modules\\.bin\\mocha

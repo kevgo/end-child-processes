@@ -9,8 +9,7 @@ const psTreeA = util.promisify(psTree)
 describe('end-child-processes', () => {
   it('ends all child processes', async () => {
     // start some child processes
-
-    childProcess.exec(blockingCommand())
+    childProcess.exec('set /p id=Enter')
     let count = await runningProcessCount()
     expect(count).to.equal(2)
 
@@ -20,17 +19,6 @@ describe('end-child-processes', () => {
     expect(count).to.equal(0)
   })
 })
-
-/**
- * Returns a command that runs on the current platform and blocks
- */
-function blockingCommand() {
-  if (process.platform === 'win32') {
-    return 'cmd /c pause'
-  } else {
-    return '(read foo)'
-  }
-}
 
 async function runningProcessCount() {
   const children = await psTreeA(process.pid)

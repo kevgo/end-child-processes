@@ -1,0 +1,24 @@
+environment:
+  nodejs_version: '8'
+
+# cache:
+# - node_modules
+
+init:
+  - git config --global core.autocrlf true
+  - copy c:\MinGW\bin\mingw32-make.exe c:\MinGW\bin\make.exe
+
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - node --version
+  - yarn -v
+  - yarn
+  - set PATH=%APPDATA%\npm;c:\MinGW\bin;%PATH%
+
+test_script:
+  - make test-win
+
+# Don't double-build PRs
+skip_branch_with_pr: true
+
+build: off
