@@ -3,7 +3,7 @@
   "version": "0.0.6",
   "author": "Kevin Goslar",
   "dependencies": {
-    "ps-tree": "1.1.0"
+    "ps-tree": "1.2.0"
   },
   "description": "Reliably ends all direct and indirect child processes of the current process",
   "devDependencies": {
@@ -11,7 +11,7 @@
     "prettier-standard": "8.0.0",
     "standard": "11.0.1",
     "tertestrial": "0.3.2",
-    "text-runner": "1.0.6"
+    "text-runner": "3.6.0"
   },
   "files": [
     "index.js"
