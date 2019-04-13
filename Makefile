@@ -1,25 +1,18 @@
 .PHONY: test
 
-# platform-specificity
-ifdef ComSpec
-	/ := $(strip \)
-else
-	/ := /
-endif
-
 build: clean    # builds for the current platform
-	@node_modules$/.bin$/tsc -p .
+	@node_modules/.bin/tsc -p .
 
 clean:   # Removes all build artifacts
 	@rm -rf dist
 
 docs:   # runs the documentation tests
-	node_modules$/.bin$/text-run --offline --format dot
+	node_modules/.bin/text-run --offline --format dot
 
 fix:  # runs the fixers
-	node_modules$/.bin$/prettier --write 'src/*.ts'
-	node_modules$/.bin$/prettier --write "*.md"
-	node_modules$/.bin$/prettier --write "*.yml"
+	node_modules/.bin/prettier --write 'src/*.ts'
+	node_modules/.bin/prettier --write "*.md"
+	node_modules/.bin/prettier --write "*.yml"
 
 help:   # prints all make targets
 	@cat Makefile | grep '^[^ ]*:' | grep -v '.PHONY' | grep -v help | sed 's/:.*#/#/' | column -s "#" -t
@@ -32,4 +25,8 @@ lint:   # runs all linters
 spec: lint test docs   # runs all tests
 
 test: build   # runs the unit tests
-	@node_modules$/.bin$/mocha 'test/*-test.ts'
+	@node_modules/.bin/mocha
+
+test-win:
+	@node_modules\\.bin\\tsc -p .
+	@node_modules\\.bin\\mocha
