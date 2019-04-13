@@ -2,11 +2,11 @@ const N = require('nitroglycerin')
 const psTree = require('ps-tree')
 
 module.exports = ({ formatter }, done) => {
-  formatter.output('verifying all child processes are terminated')
+  formatter.log('verifying all child processes are terminated')
   psTree(
     process.pid,
     N(children => {
-      formatter.output(`found ${children.length - 1} child processes`)
+      formatter.log(`found ${children.length - 1} child processes`)
       if (children.length !== 1) {
         // the one process looking for child processes is okay
         throw new Error(
