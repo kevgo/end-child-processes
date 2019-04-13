@@ -3,4 +3,4 @@
 --recursive
 --reporter spec
 --slow 500
-test/*-test.ts
+test/*-test.?s
