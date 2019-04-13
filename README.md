@@ -15,9 +15,11 @@ npm install --save end-child-processes
 ## Usage
 
 ```js
-const endChildProcesses = require('end-child-processes')
+import { endChildProcesses } from 'end-child-processes'
+// or
+const { endChildProcesses } = require('end-child-processes')
 
-endChildProcesses(<CALLBACK>)
+await endChildProcesses()
 ```
 
 The callback is run when all child processes have been terminated.
