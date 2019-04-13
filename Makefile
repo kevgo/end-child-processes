@@ -22,7 +22,7 @@ lint:   # runs all linters
 	node_modules/.bin/prettier -l '*.md'
 	node_modules/.bin/prettier -l '*.yml'
 
-spec: lint tests docs   # runs all tests
+spec: lint test docs   # runs all tests
 
 test:   # runs the unit tests
 	@node_modules/.bin/mocha 'test/*-test.ts'

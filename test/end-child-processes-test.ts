@@ -29,7 +29,11 @@ describe('end-child-processes', () => {
   })
 })
 
-function runningProcessCount(done) {
+function runningProcessCount(done: {
+  (err: Error, count: number): void
+  (err2: Error, count2: number): void
+  (arg0: Error, arg1: number): void
+}) {
   psTree(process.pid, (err, children) => {
     done(err, children.length - 1)
   })
