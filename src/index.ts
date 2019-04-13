@@ -3,7 +3,7 @@ import psTree from 'ps-tree'
 const debug = deb('end-child-processes')
 
 export function endChildProcesses(done: { (arg0: Error): void; (): void }) {
-  psTree(process.pid, (err: Error, children) => {
+  psTree(process.pid, (err, children) => {
     if (err) {
       return done(err)
     }

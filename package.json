@@ -24,11 +24,11 @@
     "typescript": "3.4.3"
   },
   "files": [
-    "dist/index.js"
+    "dist/*"
   ],
   "homepage": "https://github.com/kevgo/end-child-processes#readme",
   "license": "ISC",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kevgo/end-child-processes.git"
