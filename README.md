@@ -1,4 +1,4 @@
-# End-Child-Processes [![CircleCI](https://circleci.com/gh/kevgo/end-child-processes.svg?style=shield)](https://circleci.com/gh/kevgo/end-child-processes)
+# End-Child-Processes &nbsp; [![CircleCI](https://circleci.com/gh/kevgo/end-child-processes.svg?style=shield)](https://circleci.com/gh/kevgo/end-child-processes)
 > Reliably ends all direct and indirect child processes of the current process
 
 
