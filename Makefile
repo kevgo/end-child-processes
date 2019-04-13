@@ -1,3 +1,5 @@
+.PHONY: test
+
 build: clean    # builds for the current platform
 	@node_modules/.bin/tsc -p .
 
@@ -22,5 +24,5 @@ lint:   # runs all linters
 
 spec: lint tests docs   # runs all tests
 
-tests:   # runs the unit tests
-	@node_modules/.bin/mocha 'src/**/*-test.ts'
+test:   # runs the unit tests
+	@node_modules/.bin/mocha 'test/*-test.ts'
