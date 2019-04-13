@@ -14,22 +14,13 @@ npm install --save end-child-processes
 
 ## Usage
 
-<a textrun="startChildProcesses">
-</a>
-
-<a textrun="runJavascript">
-
 ```js
 const endChildProcesses = require('end-child-processes')
 
 endChildProcesses(<CALLBACK>)
 ```
 
-</a>
-
-<a textrun="verifyNoChildProcessesRunning">
 The callback is run when all child processes have been terminated.
-</a>
 
 ## Development
 
