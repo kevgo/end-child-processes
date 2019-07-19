@@ -32,9 +32,15 @@ await endChildProcesses()
 
 Dependent on your use case, these other libraries that might also be a good fit for you:
 
-- [tree-kill](https://github.com/pkrumins/node-tree-kill): Kill all processes in the process tree, including the current process
-- [@jub3i/tree-kill](https://github.com/jub3i/tree-kill): Kill all processes in the process tree, including the current process
+- [tree-kill](https://github.com/pkrumins/node-tree-kill): ends all processes in the process tree, including the current process
+- [@jub3i/tree-kill](https://github.com/jub3i/tree-kill): ends all processes in the process tree, including the current process
 
 ## Development
 
-See the [developer guide](CONTRIBUTING.md).
+- <b textrun="verify-make-command">make test</b>: runs all tests
+- <b textrun="verify-make-command">make help</b>: see all available Make commands
+
+To deploy:
+
+- update the version in `package.json` and commit to `master`
+- run `npm publish`
