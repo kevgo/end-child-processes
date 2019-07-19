@@ -5,19 +5,15 @@
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/kevgo/end-child-processes.svg)](https://lgtm.com/projects/g/kevgo/end-child-processes/context:javascript)
 
 This library reliably ends all child processes (and their child processes)
-that were spawned by the current process,
-without ending the current process itself.
+the current process has spawned.
+It doesn't end the current process itself.
 
 ## Installation
 
-```
-npm install --save end-child-processes
-```
-
-or
-
-```
-yarn add end-child-processes
+```shell
+$ npm install --save end-child-processes
+# or
+$ yarn add end-child-processes
 ```
 
 ## Usage
@@ -32,12 +28,10 @@ await endChildProcesses()
 
 ## Related work
 
-There are a number of other libraries,
-but they either also kill the root process
-or don't work:
+There are a number of other libraries that might be a better fit for you:
 
-- [tree-kill](https://github.com/pkrumins/node-tree-kill): Kill all processes in the process tree, including the root process
-- [@jub3i/tree-kill](https://github.com/jub3i/tree-kill): Kill all processes in the process tree, including the root process
+- [tree-kill](https://github.com/pkrumins/node-tree-kill): Kill all processes in the process tree, including the current process
+- [@jub3i/tree-kill](https://github.com/jub3i/tree-kill): Kill all processes in the process tree, including the current process
 
 ## Development
 
