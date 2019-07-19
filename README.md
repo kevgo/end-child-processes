@@ -1,8 +1,8 @@
 # End-Child-Processes
 
 [![CircleCI](https://circleci.com/gh/kevgo/end-child-processes.svg?style=shield)](https://circleci.com/gh/kevgo/end-child-processes) [![Build status](https://ci.appveyor.com/api/projects/status/mawb87nkafx7sqvx/branch/master?svg=true)](https://ci.appveyor.com/project/kevgo/end-child-processes/branch/master)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/kevgo/end-child-processes.svg)](https://lgtm.com/projects/g/kevgo/end-child-processes/context:javascript)
 [![Coverage Status](https://coveralls.io/repos/github/kevgo/end-child-processes/badge.svg)](https://coveralls.io/github/kevgo/end-child-processes)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/kevgo/end-child-processes.svg)](https://lgtm.com/projects/g/kevgo/end-child-processes/context:javascript)
 
 This library reliably ends all child processes (and their child processes)
 that were spawned by the current process,
