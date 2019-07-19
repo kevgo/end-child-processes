@@ -1,0 +1,1 @@
+{"processes":{"6b827597-d6de-4734-b9c7-2b0d05d72796":{"parent":"fd084323-4d6e-4e7a-b341-72b93d7e785c","children":[]},"fd084323-4d6e-4e7a-b341-72b93d7e785c":{"parent":null,"children":["6b827597-d6de-4734-b9c7-2b0d05d72796"]}},"files":{"/home/kevin.goslar/end-child-processes/src/index.ts":["6b827597-d6de-4734-b9c7-2b0d05d72796"]},"externalIds":{}}
