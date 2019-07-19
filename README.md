@@ -20,9 +20,9 @@ $ yarn add end-child-processes
 ## Usage
 
 ```js
-import { endChildProcesses } from 'end-child-processes'
+import { endChildProcesses } from "end-child-processes"
 // or
-const { endChildProcesses } = require('end-child-processes')
+const { endChildProcesses } = require("end-child-processes")
 
 await endChildProcesses()
 ```
