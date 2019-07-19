@@ -14,7 +14,7 @@ docs:   # runs the documentation tests
 	node_modules/.bin/text-run --offline --format dot
 
 fix:  # runs the fixers
-	tslint --project . --fix
+	node_modules/.bin/tslint --project . --fix
 	node_modules/.bin/prettier --write 'src/*.ts'
 	node_modules/.bin/prettier --write 'test/*.ts'
 	node_modules/.bin/prettier --write 'text-run/*.js'
@@ -25,7 +25,7 @@ help:   # prints all make targets
 	@cat Makefile | grep '^[^ ]*:' | grep -v '.PHONY' | grep -v help | sed 's/:.*#/#/' | column -s "#" -t
 
 lint:   # runs all linters
-	tslint --project .
+	node_modules/.bin/tslint --project .
 	node_modules/.bin/prettier -l 'src/*.ts'
 	node_modules/.bin/prettier -l 'test/*.ts'
 	node_modules/.bin/prettier -l 'text-run/*.js'
