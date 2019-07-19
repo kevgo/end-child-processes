@@ -30,7 +30,7 @@ await endChildProcesses()
 
 ## Related work
 
-There are a number of other libraries that might be a better fit for you:
+Dependent on your use case, these other libraries that might also be a good fit for you:
 
 - [tree-kill](https://github.com/pkrumins/node-tree-kill): Kill all processes in the process tree, including the current process
 - [@jub3i/tree-kill](https://github.com/jub3i/tree-kill): Kill all processes in the process tree, including the current process
