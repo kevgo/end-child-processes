@@ -10,11 +10,12 @@ export async function endChildProcesses() {
     if (child.COMMAND === 'ps') {
       continue
     }
-    debug(`ending child process: ${child.COMMAND}`)
+    const processID = parseInt(child.PID, 10)
+    debug(`ending child process ${processID}: ${child.COMMAND}`)
     try {
-      process.kill(parseInt(child.PID, 10))
+      process.kill(processID)
     } catch (e) {
-      debug(`cannot kill process ${child.COMMAND}: ${e.message}`)
+      debug(`cannot kill process ${processID} (${child.COMMAND}): ${e.message}`)
     }
   }
 }
