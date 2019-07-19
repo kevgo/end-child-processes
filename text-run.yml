@@ -1,4 +1,4 @@
-files: '*.md'
+files: "*.md"
 formatter: robust
 useTempDirectory: false
 
