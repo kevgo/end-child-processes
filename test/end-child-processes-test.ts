@@ -9,7 +9,6 @@ const psTreeA = util.promisify(psTree)
 describe('end-child-processes', () => {
   it('ends all child processes', async () => {
     // start some child processes
-
     childProcess.exec(blockingCommand())
     let count = await runningProcessCount()
     expect(count).to.equal(2)
