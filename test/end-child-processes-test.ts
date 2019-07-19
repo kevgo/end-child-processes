@@ -1,4 +1,4 @@
-import { expect } from "chai"
+import { strict as assert } from "assert"
 import childProcess from "child_process"
 import { describe, it } from "mocha"
 import psTree from "ps-tree"
@@ -11,12 +11,12 @@ describe("end-child-processes", () => {
     // start some child processes
     childProcess.exec(blockingCommand())
     let count = await runningProcessCount()
-    expect(count).to.equal(2)
+    assert.equal(count, 2, "should have 2 child processes")
 
     // stop the child processes
     await endChildProcesses()
     count = await runningProcessCount()
-    expect(count).to.equal(0)
+    assert.equal(count, 0, "should have 0 child processes now")
   })
 })
 
