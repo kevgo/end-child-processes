@@ -32,7 +32,15 @@ lint:   # runs all linters
 	node_modules/.bin/prettier -l '*.md'
 	node_modules/.bin/prettier -l '*.yml'
 
-test: lint unit docs   # runs all tests
+test: # runs all tests
+	@node_modules/.bin/tslint --project . &
+	@node_modules/.bin/prettier -l 'src/*.ts' &
+	@node_modules/.bin/prettier -l 'test/*.ts' &
+	@node_modules/.bin/prettier -l 'text-run/*.js' &
+	@node_modules/.bin/prettier -l '*.md' &
+	@node_modules/.bin/prettier -l '*.yml' &
+	@node_modules/.bin/text-run --offline --format dot &
+	@node_modules/.bin/mocha
 
 unit: build   # runs the unit tests
 	@node_modules/.bin/mocha
