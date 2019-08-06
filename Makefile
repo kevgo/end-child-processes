@@ -46,5 +46,4 @@ unit: build   # runs the unit tests
 	@node_modules/.bin/mocha
 
 test-win:
-	@node_modules\\.bin\\tsc -p .
 	@node_modules\\.bin\\mocha
