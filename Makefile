@@ -42,7 +42,7 @@ test: # runs all tests
 	@node_modules/.bin/text-run --offline --format dot &
 	@node_modules/.bin/mocha test/*-test.ts
 
-unit: build   # runs the unit tests
+unit:  # runs the unit tests
 	@node_modules/.bin/mocha test/*-test.ts
 
 test-win:
