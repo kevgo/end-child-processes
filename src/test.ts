@@ -3,7 +3,7 @@ import childProcess from "child_process"
 import { test } from "mocha"
 import psTree from "ps-tree"
 import util from "util"
-import { endChildProcesses } from "../src/index"
+import { endChildProcesses } from "./index"
 const psTreeA = util.promisify(psTree)
 
 test("end-child-processes", async function() {
