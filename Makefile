@@ -40,10 +40,10 @@ test: # runs all tests
 	@node_modules/.bin/prettier -l '*.md' &
 	@node_modules/.bin/prettier -l '*.yml' &
 	@node_modules/.bin/text-run --offline --format dot &
-	@node_modules/.bin/mocha
+	@node_modules/.bin/mocha test/*-test.ts
 
 unit: build   # runs the unit tests
-	@node_modules/.bin/mocha
+	@node_modules/.bin/mocha test/*-test.ts
 
 test-win:
 	@node_modules\\.bin\\mocha

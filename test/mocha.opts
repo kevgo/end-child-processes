@@ -1,6 +1,0 @@
---colors
---require ts-node/register
---recursive
---reporter spec
---slow 500
-test/*-test.?s
