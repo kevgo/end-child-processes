@@ -46,4 +46,4 @@ unit:  # runs the unit tests
 	@node_modules/.bin/mocha src/test.ts
 
 test-win:
-	@node_modules\\.bin\\mocha
+	@node_modules\\.bin\\mocha src\\test.ts
