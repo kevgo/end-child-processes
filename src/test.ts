@@ -6,7 +6,7 @@ import util from "util"
 import { endChildProcesses } from "./index"
 const psTreeA = util.promisify(psTree)
 
-test("end-child-processes", async function () {
+test("end-child-processes", async function() {
   // start some child processes
   childProcess.exec(blockingCommand())
   let count = await runningProcessCount()
