@@ -15,30 +15,30 @@ docs:   # runs the documentation tests
 
 fix:  # runs the fixers
 	node_modules/.bin/tslint --project . --fix
-	node_modules/.bin/prettier --write 'src/*.ts'
-	node_modules/.bin/prettier --write 'test/*.ts'
-	node_modules/.bin/prettier --write 'text-run/*.js'
+	node_modules/.bin/prettier --write 'src/'
+	node_modules/.bin/prettier --write 'text-run/'
 	node_modules/.bin/prettier --write "*.md"
 	node_modules/.bin/prettier --write "*.yml"
+	node_modules/.bin/prettier --write "*.json"
 
 help:   # prints all make targets
 	@cat Makefile | grep '^[^ ]*:' | grep -v '.PHONY' | grep -v help | sed 's/:.*#/#/' | column -s "#" -t
 
 lint:   # runs all linters
 	node_modules/.bin/tslint --project .
-	node_modules/.bin/prettier -l 'src/*.ts'
-	node_modules/.bin/prettier -l 'test/*.ts'
-	node_modules/.bin/prettier -l 'text-run/*.js'
+	node_modules/.bin/prettier -l 'src/'
+	node_modules/.bin/prettier -l 'text-run/'
 	node_modules/.bin/prettier -l '*.md'
 	node_modules/.bin/prettier -l '*.yml'
+	node_modules/.bin/prettier -l '*.json'
 
 test: # runs all tests
 	@node_modules/.bin/tslint --project . &
-	@node_modules/.bin/prettier -l 'src/*.ts' &
-	@node_modules/.bin/prettier -l 'test/*.ts' &
-	@node_modules/.bin/prettier -l 'text-run/*.js' &
+	@node_modules/.bin/prettier -l 'src/' &
+	@node_modules/.bin/prettier -l 'text-run/' &
 	@node_modules/.bin/prettier -l '*.md' &
 	@node_modules/.bin/prettier -l '*.yml' &
+	@node_modules/.bin/prettier -l '*.json' &
 	@node_modules/.bin/text-run --offline --format dot &
 	@node_modules/.bin/mocha src/test.ts
 
