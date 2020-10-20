@@ -14,7 +14,7 @@ doc:   # runs the documentation tests
 	${CURDIR}/node_modules/.bin/text-run --offline --format=dot
 
 fix:  # runs the fixers
-	${CURDIR}/node_modules/.bin/tslint --project . --fix
+	${CURDIR}/node_modules/.bin/eslint . --fix --ext=.ts
 	${CURDIR}/node_modules/.bin/prettier --write .
 
 help:   # prints all make targets
