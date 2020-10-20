@@ -11,7 +11,7 @@ coverage: build  # measures test coverage
 	node_modules/.bin/nyc report --reporter=text-lcov | node_modules/.bin/coveralls
 
 docs:   # runs the documentation tests
-	node_modules/.bin/text-run --offline --format dot
+	node_modules/.bin/text-run --offline --format=dot
 
 fix:  # runs the fixers
 	node_modules/.bin/tslint --project . --fix
@@ -34,12 +34,8 @@ lint:   # runs all linters
 
 test: # runs all tests
 	@node_modules/.bin/tslint --project . &
-	@node_modules/.bin/prettier -l 'src/' &
-	@node_modules/.bin/prettier -l 'text-run/' &
-	@node_modules/.bin/prettier -l '*.md' &
-	@node_modules/.bin/prettier -l '*.yml' &
-	@node_modules/.bin/prettier -l '*.json' &
-	@node_modules/.bin/text-run --offline --format dot &
+	@node_modules/.bin/prettier -l . &
+	@node_modules/.bin/text-run --offline --format=dot &
 	@node_modules/.bin/mocha src/test.ts
 
 unit:  # runs the unit tests

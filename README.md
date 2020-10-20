@@ -39,9 +39,8 @@ for you:
 
 ## Development
 
-- <b textrun="verify-make-command">make test</b>: runs all tests
-- <b textrun="verify-make-command">make help</b>: see all available Make
-  commands
+- <b type="make/command">make test</b>: runs all tests
+- <b type="make/command">make help</b>: see all available Make commands
 
 To deploy:
 
