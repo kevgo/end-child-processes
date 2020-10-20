@@ -10,7 +10,7 @@ coverage: build  # measures test coverage
 	node_modules/.bin/nyc node_modules/.bin/mocha --require source-map-support/register src/test.ts
 	node_modules/.bin/nyc report --reporter=text-lcov | node_modules/.bin/coveralls
 
-docs:   # runs the documentation tests
+doc:   # runs the documentation tests
 	node_modules/.bin/text-run --offline --format dot
 
 fix:  # runs the fixers
