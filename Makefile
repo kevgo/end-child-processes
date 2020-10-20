@@ -11,7 +11,7 @@ coverage: build  # measures test coverage
 	${CURDIR}/node_modules/.bin/nyc report --reporter=text-lcov | node_modules/.bin/coveralls
 
 doc:   # runs the documentation tests
-	${CURDIR}/node_modules/.bin/text-run --offline --format dot
+	${CURDIR}/node_modules/.bin/text-run --offline --format=dot
 
 fix:  # runs the fixers
 	${CURDIR}/node_modules/.bin/tslint --project . --fix
@@ -27,6 +27,7 @@ lint:   # runs all linters
 test: # runs all tests
 	@${CURDIR}/node_modules/.bin/tslint --project . &
 	@${CURDIR}/node_modules/.bin/prettier -l . &
+	@${CURDIR}/node_modules/.bin/text-run --offline --format=dot &
 	@${CURDIR}/node_modules/.bin/mocha src/test.ts
 
 unit:  # runs the unit tests
