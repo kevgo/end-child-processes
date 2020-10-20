@@ -22,11 +22,10 @@ help:   # prints all make targets
 
 lint:   # runs all linters
 	${CURDIR}/node_modules/.bin/eslint . --ext=.ts
-	${CURDIR}/node_modules/.bin/tslint --project .
 	${CURDIR}/node_modules/.bin/prettier -l .
 
 test: # runs all tests
-	@${CURDIR}/node_modules/.bin/eslint . --ext=.ts
+	@${CURDIR}/node_modules/.bin/eslint . --ext=.ts &
 	@${CURDIR}/node_modules/.bin/prettier -l . &
 	@${CURDIR}/node_modules/.bin/text-run --offline --format=dot &
 	@${CURDIR}/node_modules/.bin/mocha src/test.ts

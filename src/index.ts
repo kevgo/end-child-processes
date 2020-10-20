@@ -4,7 +4,7 @@ import util from "util"
 const debug = deb("end-child-processes")
 const psTreeA = util.promisify(psTree)
 
-export async function endChildProcesses() {
+export async function endChildProcesses(): Promise<void> {
   const children = await psTreeA(process.pid)
   for (const child of children) {
     if (child.COMMAND === "ps") {

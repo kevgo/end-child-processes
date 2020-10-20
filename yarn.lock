@@ -2634,6 +2634,13 @@ text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
+textrun-make@0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/textrun-make/-/textrun-make-0.0.10.tgz#d96c7da38dc4254011f0382751ea81ce55c5c351"
+  integrity sha512-cJp5J/2UQJOQefWfORvt5VTptjhMLfGy4Ae/jHlhkQNqS5hpQ/oTvMV0Tpr5+7+9wOv8/3e7+FmYhtts2DI+uQ==
+  dependencies:
+    text-runner-core "5.0.0-pre10"
+
 through@2, through@~2.3, through@~2.3.1:
   version "2.3.8"
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
