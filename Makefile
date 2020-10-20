@@ -21,13 +21,13 @@ help:   # prints all make targets
 	@cat Makefile | grep '^[^ ]*:' | grep -v '.PHONY' | grep -v help | sed 's/:.*#/#/' | column -s "#" -t
 
 lint:   # runs all linters
-	node_modules/.bin/tslint --project .
+	${CURDIR}/../node_modules/.bin/eslint . --ext .ts --ignore-path ../.eslintignore
 	node_modules/.bin/prettier -l .
 
 test: # runs all tests
-	@node_modules/.bin/tslint --project . &
-	@node_modules/.bin/prettier -l . &
-	@node_modules/.bin/mocha src/test.ts
+@node_modules/.bin/tslint --project . &
+@node_modules/.bin/prettier -l . &
+@node_modules/.bin/mocha src/test.ts
 
 unit:  # runs the unit tests
 	@node_modules/.bin/mocha src/test.ts
