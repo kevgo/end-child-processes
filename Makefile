@@ -15,22 +15,14 @@ docs:   # runs the documentation tests
 
 fix:  # runs the fixers
 	node_modules/.bin/tslint --project . --fix
-	node_modules/.bin/prettier --write 'src/'
-	node_modules/.bin/prettier --write 'text-run/'
-	node_modules/.bin/prettier --write "*.md"
-	node_modules/.bin/prettier --write "*.yml"
-	node_modules/.bin/prettier --write "*.json"
+	node_modules/.bin/prettier --write .
 
 help:   # prints all make targets
 	@cat Makefile | grep '^[^ ]*:' | grep -v '.PHONY' | grep -v help | sed 's/:.*#/#/' | column -s "#" -t
 
 lint:   # runs all linters
 	node_modules/.bin/tslint --project .
-	node_modules/.bin/prettier -l 'src/'
-	node_modules/.bin/prettier -l 'text-run/'
-	node_modules/.bin/prettier -l '*.md'
-	node_modules/.bin/prettier -l '*.yml'
-	node_modules/.bin/prettier -l '*.json'
+	node_modules/.bin/prettier -l .
 
 test: # runs all tests
 	@node_modules/.bin/tslint --project . &
