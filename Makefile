@@ -14,18 +14,21 @@ doc:   # runs the documentation tests
 	${CURDIR}/node_modules/.bin/text-run --offline --format=dot
 
 fix:  # runs the fixers
-	${CURDIR}/node_modules/.bin/tslint --project . --fix
+	${CURDIR}/node_modules/.bin/eslint --fix --ext=.ts .
 	${CURDIR}/node_modules/.bin/prettier --write .
 
 help:   # prints all make targets
 	cat Makefile | grep '^[^ ]*:' | grep -v '.PHONY' | grep -v help | sed 's/:.*#/#/' | column -s "#" -t
 
 lint:   # runs all linters
-	${CURDIR}/node_modules/.bin/tslint --project .
+	${CURDIR}/node_modules/.bin/eslint --ext=.ts .
 	${CURDIR}/node_modules/.bin/prettier -l .
 
+publish:  # deploys the current version to npmjs.com
+	npm publish
+
 test: # runs all tests
-	${CURDIR}/node_modules/.bin/tslint --project . &
+	${CURDIR}/node_modules/.bin/eslint --ext=.ts . &
 	${CURDIR}/node_modules/.bin/prettier -l . &
 	${CURDIR}/node_modules/.bin/text-run --offline --format=dot &
 	${CURDIR}/node_modules/.bin/mocha src/test.ts
