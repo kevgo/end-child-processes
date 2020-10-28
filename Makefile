@@ -28,10 +28,9 @@ publish:  # deploys the current version to npmjs.com
 	npm publish
 
 test: # runs all tests
-	${CURDIR}/node_modules/.bin/eslint --ext=.ts . &
-	${CURDIR}/node_modules/.bin/prettier -l . &
-	${CURDIR}/node_modules/.bin/text-run --offline --format=dot &
-	${CURDIR}/node_modules/.bin/mocha src/test.ts
+	make lint &
+	make doc &
+	make unit
 
 unit:  # runs the unit tests
 	${CURDIR}/node_modules/.bin/mocha src/test.ts
