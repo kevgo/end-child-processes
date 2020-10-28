@@ -16,7 +16,7 @@ install:
   - set PATH=%APPDATA%\npm;c:\MinGW\bin;%PATH%
 
 test_script:
-  - make test-win
+  - make test
 
 # Don't double-build PRs
 skip_branch_with_pr: true
