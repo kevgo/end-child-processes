@@ -24,6 +24,9 @@ lint:   # runs all linters
 	${CURDIR}/node_modules/.bin/tslint --project .
 	${CURDIR}/node_modules/.bin/prettier -l .
 
+publish:  # deploys the current version to npmjs.com
+	npm publish
+
 test: # runs all tests
 	@${CURDIR}/node_modules/.bin/tslint --project . &
 	@${CURDIR}/node_modules/.bin/prettier -l . &
