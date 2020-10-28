@@ -14,18 +14,18 @@ doc:   # runs the documentation tests
 	${CURDIR}/node_modules/.bin/text-run --offline --format=dot
 
 fix:  # runs the fixers
-	${CURDIR}/node_modules/.bin/eslint . --fix --ext=.ts
+	${CURDIR}/node_modules/.bin/eslint --fix --ext=.ts .
 	${CURDIR}/node_modules/.bin/prettier --write .
 
 help:   # prints all make targets
 	@cat Makefile | grep '^[^ ]*:' | grep -v '.PHONY' | grep -v help | sed 's/:.*#/#/' | column -s "#" -t
 
 lint:   # runs all linters
-	${CURDIR}/node_modules/.bin/eslint . --ext=.ts
+	${CURDIR}/node_modules/.bin/eslint --ext=.ts .
 	${CURDIR}/node_modules/.bin/prettier -l .
 
 test: # runs all tests
-	@${CURDIR}/node_modules/.bin/eslint . --ext=.ts &
+	@${CURDIR}/node_modules/.bin/eslint --ext=.ts . &
 	@${CURDIR}/node_modules/.bin/prettier -l . &
 	@${CURDIR}/node_modules/.bin/text-run --offline --format=dot &
 	@${CURDIR}/node_modules/.bin/mocha src/test.ts
