@@ -36,7 +36,4 @@ test: # runs all tests
 unit:  # runs the unit tests
 	${CURDIR}/node_modules/.bin/mocha src/test.ts
 
-test-win:
-	${CURDIR}/node_modules/.bin/mocha src/test.ts
-
 .SILENT:
