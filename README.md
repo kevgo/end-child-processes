@@ -45,4 +45,4 @@ for you:
 To deploy:
 
 - update the version in `package.json` and commit to `master`
-- run <b type="make/command">npm publish</b>
+- run <b type="make/command">make publish</b>
