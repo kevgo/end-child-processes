@@ -1,5 +1,3 @@
-.PHONY: test
-
 build: clean    # builds for the current platform
 	${CURDIR}/node_modules/.bin/tsc -p .
 
