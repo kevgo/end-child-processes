@@ -30,6 +30,9 @@ test: # runs all tests
 	make doc &
 	make unit
 
+update:  # update dependencies
+	yarn upgrade --latest
+
 unit:  # runs the unit tests
 	${CURDIR}/node_modules/.bin/mocha src/test.ts
 
