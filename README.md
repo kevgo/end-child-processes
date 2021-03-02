@@ -39,6 +39,8 @@ for you:
 
 ## Development
 
+- <b type="make/command">make setup</b>: prepares this codebase for development
+  after cloning
 - <b type="make/command">make test</b>: runs all tests
 - <b type="make/command">make help</b>: see all available Make commands
 
