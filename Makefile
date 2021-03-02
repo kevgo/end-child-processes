@@ -29,9 +29,9 @@ setup:  # gets this code base ready for development
 	yarn
 
 test: # runs all tests
-	make lint &
-	make doc &
-	make unit
+	make --no-print-directory lint &
+	make --no-print-directory doc &
+	make --no-print-directory unit
 
 update:  # update dependencies
 	yarn upgrade --latest
