@@ -28,10 +28,12 @@ publish:  # deploys the current version to npmjs.com
 setup:  # gets this code base ready for development
 	yarn
 
-test: # runs all tests
+test: # runs all tests concurrently
 	make --no-print-directory lint &
 	make --no-print-directory doc &
 	make --no-print-directory unit
+
+test-ci: lint unit doc  # runs all tests sequentially
 
 update:  # update dependencies
 	yarn upgrade --latest
