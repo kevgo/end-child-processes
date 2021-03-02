@@ -15,7 +15,7 @@ jobs:
             - yarn-master
             - yarn-
       - run: yarn
-      - run: make test
+      - run: make test-ci
       - run: make coverage
       - save_cache:
           name: save Yarn cache
