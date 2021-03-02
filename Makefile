@@ -25,6 +25,9 @@ lint:   # runs all linters
 publish:  # deploys the current version to npmjs.com
 	npm publish
 
+setup:  # gets this code base ready for development
+	yarn
+
 test: # runs all tests
 	make lint &
 	make doc &
