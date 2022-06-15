@@ -14,6 +14,7 @@ doc:   # runs the documentation tests
 fix:  # runs the fixers
 	${CURDIR}/node_modules/.bin/prettier --write . &
 	${CURDIR}/node_modules/.bin/eslint --fix --ext=.ts .
+	${CURDIR}/node_modules/.bin/sort-package-json
 
 help:   # prints all make targets
 	cat Makefile | grep '^[^ ]*:' | grep -v '.PHONY' | grep -v help | sed 's/:.*#/#/' | column -s "#" -t
@@ -21,6 +22,7 @@ help:   # prints all make targets
 lint:   # runs all linters
 	${CURDIR}/node_modules/.bin/prettier -l . &
 	${CURDIR}/node_modules/.bin/eslint --ext=.ts .
+	${CURDIR}/node_modules/.bin/sort-package-json --check
 
 publish:  # deploys the current version to npmjs.com
 	npm publish
