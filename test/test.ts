@@ -10,6 +10,7 @@ const psTreeA = util.promisify(psTree)
 test("end-child-processes", async function() {
   if (process.platform === "win32") {
     await testWindows()
+    console.log("WIN DONE")
   } else {
     await testUnix()
   }
@@ -23,10 +24,12 @@ async function testUnix() {
 }
 
 async function testWindows() {
-  childProcess.exec("cmd /c pause")
-  assert.equal(await childNames(), ["pause", "ps"])
+  // NOTE: If the test ends with a running subprocess.
+  childProcess.exec("cmd /b TIMEOUT 1")
+  let children = await childNames()
+  assert.deepEqual(children, ["cmd.exe", "cmd.exe"])
   await endChildProcesses()
-  assert.equal(await childNames(), [])
+  assert.deepEqual(await childNames(), [])
 }
 
 async function childNames(): Promise<string[]> {
@@ -34,5 +37,5 @@ async function childNames(): Promise<string[]> {
   if (children == null) {
     return []
   }
-  return children?.map(child => child.COMMAND)
+  return children.map(child => child.COMMAND).filter(childName => childName !== "WMIC.exe")
 }
