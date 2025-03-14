@@ -12,7 +12,7 @@
   "type": "module",
   "main": "dist/index.js",
   "files": [
-    "dist/*"
+    "dist/src/*"
   ],
   "scripts": {
     "build": "tsc",
@@ -23,7 +23,7 @@
     "lint": "dprint check && eslint --ext=.ts . && sort-package-json --check --quiet",
     "setup": "npm install",
     "test": " npm run build && npm run fix && npm run lint && npm run unit",
-    "unit": "node --test --import tsx src/test.ts",
+    "unit": "npm run build && node --test dist/test/test.js",
     "update": "npm-check-updates -u && npm install"
   },
   "dependencies": {
