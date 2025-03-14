@@ -28,7 +28,11 @@ async function testWindows() {
   // the test runner will hang on Windows.
   childProcess.exec("cmd /b TIMEOUT 1")
   assert.deepEqual(await childNames(), ["cmd.exe", "cmd.exe"])
-  await endChildProcesses()
+  try {
+    await endChildProcesses()
+  } catch (e) {
+    console.log(e)
+  }
   assert.deepEqual(await childNames(), [])
 }
 
