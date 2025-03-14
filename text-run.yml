@@ -1,8 +1,0 @@
-files: "*.md"
-formatter: robust
-useTempDirectory: false
-
-actions:
-  runJavascript:
-    replace:
-      "require('end-child-processes')": "require('.')"

@@ -7,4 +7,4 @@
 To deploy:
 
 - update the version in `package.json` and commit to `master`
-- run <b type="npm/script-call">npm publish</b>
+- run `npm publish`
