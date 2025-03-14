@@ -19,9 +19,7 @@ export async function endChildProcesses(): Promise<void> {
     try {
       process.kill(processID)
     } catch (e) {
-      debug(
-        `cannot kill process ${processID} (${child.COMMAND}): ${(e as Error).message}`,
-      )
+      throw new Error(`cannot kill process ${processID} (${child.COMMAND}): ${(e as Error).message}`)
     }
   }
   await delay(1)
