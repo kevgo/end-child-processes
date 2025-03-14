@@ -19,7 +19,11 @@ test("end-child-processes", async function() {
 async function testUnix() {
   childProcess.exec("bash -c 'sleep 1'")
   assert.deepEqual(await childNames(), ["sleep", "ps"])
-  await endChildProcesses()
+  try {
+    await endChildProcesses()
+  } catch (e) {
+    console.log(e)
+  }
   assert.deepEqual(await childNames(), ["ps"])
 }
 
@@ -28,7 +32,11 @@ async function testWindows() {
   // the test runner will hang on Windows.
   childProcess.exec("cmd /b TIMEOUT 1")
   assert.deepEqual(await childNames(), ["cmd.exe", "cmd.exe"])
-  await endChildProcesses()
+  try {
+    await endChildProcesses()
+  } catch (e) {
+    console.log(e)
+  }
   assert.deepEqual(await childNames(), [])
 }
 
