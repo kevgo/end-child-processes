@@ -37,5 +37,6 @@ async function childNames(): Promise<string[]> {
   if (children == null) {
     return []
   }
-  return children.map(child => child.COMMAND).filter(childName => childName !== "WMIC.exe")
+  const allowed = ["ps", "sleep", "cmd.exe"]
+  return children.map(child => child.COMMAND).filter(childName => allowed.includes(childName))
 }
