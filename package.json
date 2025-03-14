@@ -17,7 +17,7 @@
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf dist",
-    "coverage": "node --test --import tsx --experimental-test-coverage --test-reporter=lcov --test-reporter-destination=lcov.info -- src/*.test.ts",
+    "coverage": "node --test --import tsx --experimental-test-coverage --test-reporter=lcov --test-reporter-destination=lcov.info -- test/*.ts",
     "doc": "text-runner",
     "fix": "dprint fmt && eslint --fix --ext=.ts . && sort-package-json --quiet",
     "lint": "dprint check && eslint --ext=.ts . && sort-package-json --check --quiet",
