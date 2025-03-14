@@ -10,9 +10,9 @@ current process has spawned. It doesn't end the current process itself.
 
 ## Installation
 
-<pre>
-$ npm install --save end-child-processes
-</pre>
+```
+processes
+```
 
 ## Usage
 
