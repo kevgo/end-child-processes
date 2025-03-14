@@ -24,7 +24,8 @@ async function testUnix() {
 }
 
 async function testWindows() {
-  // NOTE: If the test ends with a running subprocess.
+  // NOTE: If the test ends with a running subprocess,
+  // the test runner will hang on Windows.
   childProcess.exec("cmd /b TIMEOUT 1")
   let children = await childNames()
   assert.deepEqual(children, ["cmd.exe", "cmd.exe"])
