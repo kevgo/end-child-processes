@@ -12,16 +12,16 @@ export default [
       sourceType: "module",
       parser: tsParser,
       parserOptions: {
-        project: "./tsconfig.json",
+        project: "./tsconfig.json"
       },
       globals: {
         console: "readonly",
         module: "readonly",
-        process: "readonly",
-      },
+        process: "readonly"
+      }
     },
     plugins: {
-      "@typescript-eslint": tslintPlugin,
+      "@typescript-eslint": tslintPlugin
     },
     rules: {
       ...tslintPlugin.configs.recommended.rules,
@@ -29,7 +29,7 @@ export default [
       "prefer-const": "error",
       "@typescript-eslint/no-explicit-any": "error",
       "@typescript-eslint/no-unsafe-call": "error",
-      "@typescript-eslint/no-unused-vars": "off", // this is enforced by TypeScript
-    },
-  },
+      "@typescript-eslint/no-unused-vars": "off" // this is enforced by TypeScript
+    }
+  }
 ]
