@@ -27,7 +27,7 @@
     "update": "npm-check-updates -u && npm install"
   },
   "dependencies": {
-    "@fengmk2/ps-tree": "^2.0.2",
+    "@fengmk2/ps-tree": "2.0.2",
     "debug": "4.4.0"
   },
   "devDependencies": {
