@@ -14,7 +14,16 @@
     "dist/*"
   ],
   "scripts": {
-    "test": "make spec"
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "coverage": "",
+    "doc": "text-runner",
+    "fix": "prettier --write . && eslint --fix --ext=.ts . && sort-package-json",
+    "lint": "prettier -l . && eslint --ext=.ts . && sort-package-json --check",
+    "setup": "npm install",
+    "test": " npm run build && npm run fix && npm run lint && npm run unit",
+    "unit": "mocha src/test.ts",
+    "update": "npm-check-updates -u && npm install"
   },
   "dependencies": {
     "debug": "4.3.1",
