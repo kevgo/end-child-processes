@@ -16,33 +16,23 @@ test("end-child-processes", async function() {
 })
 
 async function testUnix() {
-  // start a long-running child process
   childProcess.exec("bash -c 'sleep 1'")
-  let children = await psTreeA(process.pid)
-  if (children == null) {
-    throw new Error("no process children")
-  }
-  let childNames = children?.map(child => child.COMMAND)
-  assert.deepEqual(childNames, ["sleep", "ps"])
-  // stop the child process
+  assert.deepEqual(await childNames(), ["sleep", "ps"])
   await endChildProcesses()
-  children = await psTreeA(process.pid)
-  if (children == null) {
-    throw new Error("no process children")
-  }
-  childNames = children.map(child => child.COMMAND)
-  assert.deepEqual(childNames, ["ps"])
+  assert.deepEqual(await childNames(), ["ps"])
 }
 
 async function testWindows() {
-  // start a long-running child process
   childProcess.exec("cmd /c pause")
-  let children = await psTreeA(process.pid)
-  let childNames = children?.map(child => child.COMMAND)
-  assert.equal(childNames, ["sleep", "ps"])
-  // stop the child process
+  assert.equal(await childNames(), ["pause", "ps"])
   await endChildProcesses()
-  children = await psTreeA(process.pid)
-  childNames = children?.map(child => child.COMMAND)
-  assert.equal(childNames, [])
+  assert.equal(await childNames(), [])
+}
+
+async function childNames(): Promise<string[]> {
+  let children = await psTreeA(process.pid)
+  if (children == null) {
+    return []
+  }
+  return children?.map(child => child.COMMAND)
 }
