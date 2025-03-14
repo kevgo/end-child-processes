@@ -1,7 +1,7 @@
+import { psTree } from "@fengmk2/ps-tree"
 import childProcess from "child_process"
 import assert from "node:assert/strict"
 import { test } from "node:test"
-import psTree from "ps-tree"
 import util from "util"
 
 import { endChildProcesses } from "../src/index.js"
@@ -19,29 +19,30 @@ async function testUnix() {
   // start a long-running child process
   childProcess.exec("bash -c 'sleep 1'")
   let children = await psTreeA(process.pid)
-  console.log("111111111111111111111")
-  console.log(children)
-  console.log("222222222222222222222")
-  util.inspect(children, true, Infinity)
-  console.log("333333333333333333333")
-  let childNames = children.map(child => child.COMMAND)
-  assert.equal(childNames, ["sleep", "ps"])
+  if (children == null) {
+    throw new Error("no process children")
+  }
+  let childNames = children?.map(child => child.COMMAND)
+  assert.deepEqual(childNames, ["sleep", "ps"])
   // stop the child process
   await endChildProcesses()
   children = await psTreeA(process.pid)
+  if (children == null) {
+    throw new Error("no process children")
+  }
   childNames = children.map(child => child.COMMAND)
-  assert.equal(childNames, [])
+  assert.deepEqual(childNames, ["ps"])
 }
 
 async function testWindows() {
   // start a long-running child process
   childProcess.exec("cmd /c pause")
   let children = await psTreeA(process.pid)
-  let childNames = children.map(child => child.COMMAND)
+  let childNames = children?.map(child => child.COMMAND)
   assert.equal(childNames, ["sleep", "ps"])
   // stop the child process
   await endChildProcesses()
   children = await psTreeA(process.pid)
-  childNames = children.map(child => child.COMMAND)
+  childNames = children?.map(child => child.COMMAND)
   assert.equal(childNames, [])
 }
