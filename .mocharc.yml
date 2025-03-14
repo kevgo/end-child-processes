@@ -1,4 +1,0 @@
-node-option: ["import=tsx"]
-recursive: true
-reporter: spec
-slow: 500
