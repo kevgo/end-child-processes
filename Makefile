@@ -28,7 +28,7 @@ publish:  # deploys the current version to npmjs.com
 	npm publish
 
 setup:  # gets this code base ready for development
-	yarn
+	npm install
 
 test: # runs all tests concurrently
 	make --no-print-directory lint
@@ -36,7 +36,6 @@ test: # runs all tests concurrently
 	make --no-print-directory unit
 
 update:  # update dependencies
-	yarn upgrade --latest
 
 unit:  # runs the unit tests
 	${CURDIR}/node_modules/.bin/mocha src/test.ts

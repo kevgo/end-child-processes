@@ -13,8 +13,6 @@ current process has spawned. It doesn't end the current process itself.
 
 ```shell
 $ npm install --save end-child-processes
-# or
-$ yarn add end-child-processes
 ```
 
 ## Usage
