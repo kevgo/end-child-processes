@@ -1,6 +1,6 @@
 import { psTree } from "@fengmk2/ps-tree"
 import deb from "debug"
-import util from "util"
+import * as util from "util"
 const debug = deb("end-child-processes")
 const psTreeA = util.promisify(psTree)
 const delay = util.promisify(setTimeout)

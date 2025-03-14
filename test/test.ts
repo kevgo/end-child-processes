@@ -1,8 +1,8 @@
 import { psTree } from "@fengmk2/ps-tree"
-import childProcess from "child_process"
-import assert from "node:assert/strict"
+import * as childProcess from "child_process"
+import { strict as assert } from "node:assert"
 import { test } from "node:test"
-import util from "util"
+import * as util from "util"
 
 import { endChildProcesses } from "../src/index.js"
 const psTreeA = util.promisify(psTree)
