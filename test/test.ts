@@ -19,6 +19,11 @@ async function testUnix() {
   // start a long-running child process
   childProcess.exec("bash -c 'sleep 1'")
   let children = await psTreeA(process.pid)
+  console.log("111111111111111111111")
+  console.log(children)
+  console.log("222222222222222222222")
+  util.inspect(children, true, Infinity)
+  console.log("333333333333333333333")
   let childNames = children.map(child => child.COMMAND)
   assert.equal(childNames, ["sleep", "ps"])
   // stop the child process
