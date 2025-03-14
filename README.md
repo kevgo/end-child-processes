@@ -37,12 +37,11 @@ for you:
 
 ## Development
 
-- <b type="make/command">make setup</b>: prepares this codebase for development
+- <b type="npm/script-call">npm run setup</b>: prepares this codebase for development
   after cloning
-- <b type="make/command">make test</b>: runs all tests
-- <b type="make/command">make help</b>: see all available Make commands
+- <b type="npm/script-call">npm run test</b>: runs all tests
 
 To deploy:
 
 - update the version in `package.json` and commit to `master`
-- run <b type="make/command">make publish</b>
+- run <b type="npm/script-call">npm publish</b>
