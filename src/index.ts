@@ -16,8 +16,11 @@ export async function endChildProcesses(): Promise<void> {
     try {
       process.kill(processID)
     } catch (e) {
-      // eslint-disable-next-line
-      debug(`cannot kill process ${processID} (${child.COMMAND}): ${e.message}`)
+      debug(
+        `cannot kill process ${processID} (${child.COMMAND}): ${
+          (e as Error).message
+        }`
+      )
     }
   }
   await delay(1)
