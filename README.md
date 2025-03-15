@@ -27,7 +27,7 @@ import { endChildProcesses } from "end-child-processes"
 import * as childProcess from "child_process"
 childProcess.exec("node -e 'while (true) {}'")
 
-// end all running subprocesses
+// end all running subprocesses spawned by this program
 await endChildProcesses()
 ```
 
