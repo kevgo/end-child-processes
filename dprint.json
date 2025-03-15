@@ -5,6 +5,7 @@
     "quoteStyle": "preferDouble"
   },
   "json": {
+    "trailingCommas": "never"
   },
   "markdown": {
     "textWrap": "always"

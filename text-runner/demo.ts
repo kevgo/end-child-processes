@@ -7,9 +7,11 @@ const execAsync = promisify(exec)
 
 export async function demoScript(action: tr.actions.Args) {
   action.name("verify demo script")
-  const filePath = "src/demo.ts"
+  const filePath = "demo.ts"
   const fileContent = action.region.text()
+  console.log("111111111")
   await fs.writeFile(filePath, fileContent)
+  console.log("222222222")
   let result = await execAsync(`tsx ${filePath}`)
   assert.deepEqual(result.stdout, "")
 }
