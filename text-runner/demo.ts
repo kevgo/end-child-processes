@@ -16,8 +16,9 @@ export async function demoScript(action: tr.actions.Args, done: (err: NodeJS.Err
     exec(`npm exec tsc`, { cwd: ".." }, (err, stdout, stderr) => {
       const output = stdout + stderr
       if (err || output !== "") {
-        console.log(1111111111111)
-        console.log(output)
+        if (output) {
+          console.log(output)
+        }
         fs.rm(filePath, () => {
           done(err ?? new Error("TypeScript check failed"))
         })
