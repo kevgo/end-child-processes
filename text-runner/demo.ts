@@ -21,7 +21,7 @@ export async function demoScript(action: tr.actions.Args, done: (err: NodeJS.Err
         })
       }
       // execute the test file
-      exec(`../node_modules/.bin/tsx ${filePath}`, { cwd: "src" }, (err, stdout, stderr) => {
+      exec(`npm exec tsx ${filePath}`, { cwd: "src" }, (err, stdout, stderr) => {
         const output = stdout + stderr
         if (err || output !== "") {
           console.log(output)
