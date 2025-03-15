@@ -25,7 +25,7 @@ import { endChildProcesses } from "end-child-processes"
 
 // spawn a long-running subprocess
 import * as childProcess from "child_process"
-childProcess.exec("node -e 'setTimeout(() => {}, 1000)'")
+childProcess.exec("node -e 'while (true) {}'")
 
 // end all running subprocesses
 await endChildProcesses()
