@@ -2,9 +2,11 @@
   "typescript": {
     "lineWidth": 120,
     "semiColons": "asi",
-    "quoteStyle": "preferDouble"
+    "quoteStyle": "preferDouble",
+    "trailingCommas": "never"
   },
   "json": {
+    "trailingCommas": "never"
   },
   "markdown": {
     "textWrap": "always"
