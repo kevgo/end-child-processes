@@ -2,10 +2,9 @@ import { exec } from "child_process"
 import * as fs from "node:fs"
 import * as tr from "text-runner"
 
-const filePath = "../src/demo.ts"
-
 export async function demoScript(action: tr.actions.Args, done: (err: NodeJS.ErrnoException | null) => void) {
   action.name("verify demo script")
+  const filePath = "../src/demo.ts"
   // create the test file
   const fileContent = action.region.text()
   fs.writeFile(filePath, fileContent, (err) => {
