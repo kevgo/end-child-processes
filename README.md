@@ -10,9 +10,13 @@ nested child processes. The current process itself remains unaffected.
 
 ## Installation
 
+<a type="npm/install">
+
 ```shell
 npm install --save end-child-processes
 ```
+
+</a>
 
 ## Usage
 
