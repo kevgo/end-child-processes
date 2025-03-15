@@ -1,4 +1,4 @@
 {
   "extends": "./tsconfig.json",
-  "exclude": ["test/", "text-runner/"]
+  "exclude": ["text-runner/"]
 }
