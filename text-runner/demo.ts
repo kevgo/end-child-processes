@@ -34,6 +34,7 @@ export async function demoScript(action: tr.actions.Args, done: (err: NodeJS.Err
           fs.rm(filePath, () => {
             done(err ?? new Error("TypeScript run failed"))
           })
+          return
         }
         // cleanup
         fs.rm(filePath, done)
