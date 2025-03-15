@@ -28,7 +28,9 @@ export async function demoScript(action: tr.actions.Args, done: (err: NodeJS.Err
       exec(`npm exec tsx ${filePath}`, { cwd: "../src" }, (err, stdout, stderr) => {
         const output = stdout + stderr
         if (err || output !== "") {
-          console.log(output)
+          if (output) {
+            console.log(output)
+          }
           fs.rm(filePath, () => {
             done(err ?? new Error("TypeScript run failed"))
           })
