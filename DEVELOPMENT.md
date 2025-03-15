@@ -6,5 +6,5 @@
 
 To deploy:
 
-- update the version in `package.json` and commit to `master`
+- update the version in `package.json` and commit to `main`
 - run `npm publish`
