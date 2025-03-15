@@ -1,54 +1,37 @@
 import { exec } from "child_process"
-import * as fs from "node:fs/promises"
+import * as fs from "node:fs"
 import * as tr from "text-runner"
-import { promisify } from "util"
-const execAsync = promisify(exec)
 
-export async function demoScript(action: tr.actions.Args) {
+export async function demoScript(action: tr.actions.Args, done: (err: NodeJS.ErrnoException | null) => void) {
   action.name("verify demo script")
   // create test file
   const filePath = "../src/demo.ts"
   const fileContent = action.region.text()
-  await fs.writeFile(filePath, fileContent)
-  // type-check the test file
-  let result
-  let execError
-  let execResult = emptyExecResult()
-  try {
-    execResult = await execAsync(`node_modules/.bin/tsc`, { cwd: ".." })
-  } catch (e) {
-    execError = e as Error
-  }
-  if (execError || execResult.stdout + execResult.stderr !== "") {
-    result = new Error(`TypeScript check failed with ${execError}\n${execResult.stdout}${execResult.stderr}`)
-  }
-  // execute the test file
-  if (!result) {
-    try {
-      execResult = await execAsync(`../node_modules/.bin/tsx ${filePath}`, { cwd: "src" })
-    } catch (e) {
-      execError = e as Error
+  fs.writeFile(filePath, fileContent, (err) => {
+    if (err) {
+      return done(err)
     }
-    if (execError || execResult.stdout + execResult.stderr !== "") {
-      result = new Error(`TypeScript execution failed with ${execError}\n${execResult.stdout}${execResult.stderr}`)
-    }
-  }
-  // cleanup
-  fs.rm(filePath)
-  // return the result
-  if (result) {
-    throw result
-  }
-}
-
-type ExecResult = {
-  stdout: string
-  stderr: string
-}
-
-function emptyExecResult(): ExecResult {
-  return {
-    stdout: "",
-    stderr: "",
-  }
+    // type-check the test file
+    exec(`node_modules/.bin/tsc`, { cwd: ".." }, (err, stdout, stderr) => {
+      const output = stdout + stderr
+      if (err || output !== "") {
+        console.log(output)
+        fs.rm(filePath, () => {
+          done(err ?? new Error("TypeScript check failed"))
+        })
+      }
+      // execute the test file
+      exec(`../node_modules/.bin/tsx ${filePath}`, { cwd: "src" }, (err, stdout, stderr) => {
+        const output = stdout + stderr
+        if (err || output !== "") {
+          console.log(output)
+          fs.rm(filePath, () => {
+            done(err ?? new Error("TypeScript run failed"))
+          })
+        }
+        // cleanup
+        fs.rm(filePath, done)
+      })
+    })
+  })
 }
