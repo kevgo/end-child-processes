@@ -20,6 +20,8 @@ npm install --save end-child-processes
 
 ## Usage
 
+<a type="demo-script">
+
 ```js
 import { endChildProcesses } from "end-child-processes"
 
@@ -30,6 +32,8 @@ childProcess.exec("node -e 'while (true) {}'")
 // end all running subprocesses spawned by this program
 await endChildProcesses()
 ```
+
+</a>
 
 ## Related work
 

@@ -3,8 +3,6 @@
   "files": "**/*.md",
   "exclude": [],
   "format": "detailed",
-  // HTML attribute that marks active regions
-  "regionMarker": "type",
   // whether to display/emit skipped activities
   "showSkipped": false,
   // whether to run the tests in an external temp directory,
