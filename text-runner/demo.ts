@@ -9,19 +9,22 @@ export async function demoScript(action: tr.actions.Args, done: (err: NodeJS.Err
   const fileContent = action.region.text()
   fs.writeFile(filePath, fileContent, (err) => {
     if (err) {
-      return done(err)
+      done(err)
+      return
     }
     // type-check the test file
-    exec(`node_modules/.bin/tsc`, { cwd: ".." }, (err, stdout, stderr) => {
+    exec(`npm exec tsc`, { cwd: ".." }, (err, stdout, stderr) => {
       const output = stdout + stderr
       if (err || output !== "") {
+        console.log(1111111111111)
         console.log(output)
         fs.rm(filePath, () => {
           done(err ?? new Error("TypeScript check failed"))
         })
+        return
       }
       // execute the test file
-      exec(`npm exec tsx ${filePath}`, { cwd: "src" }, (err, stdout, stderr) => {
+      exec(`npm exec tsx ${filePath}`, { cwd: "../src" }, (err, stdout, stderr) => {
         const output = stdout + stderr
         if (err || output !== "") {
           console.log(output)
