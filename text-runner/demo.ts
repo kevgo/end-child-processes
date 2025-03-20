@@ -7,8 +7,8 @@ const execa = util.promisify(exec)
 
 export async function demoScript(action: tr.actions.Args) {
   action.name("verify demo script in README.md")
-  const dirPath = "../dist/text-runner"
-  const fileName = "demo.js"
+  const dirPath = "../dist/tr-workspace"
+  const fileName = "script-from-file.js"
 
   // create the test file
   await fs.mkdir(dirPath, { recursive: true })
