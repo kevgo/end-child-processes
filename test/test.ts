@@ -30,7 +30,7 @@ async function testWindows() {
   // NOTE: If the test ends with a running subprocess,
   // the test runner will hang on Windows.
   childProcess.exec("cmd /b TIMEOUT 1")
-  assert.deepEqual(await childNames(), ["cmd.exe", "cmd.exe"])
+  assert.deepEqual(await childNames(), ["cmd.exe", "cmd.exe"]) // one cmd started by childProcess.exec, the other by us
   try {
     await endChildProcesses()
   } catch (e) {
