@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig-build.json",
-    "coverage": "node --test --experimental-test-coverage --test-reporter=lcov --test-reporter-destination=lcov.info -- dist/test/test.js",
+    "coverage": "node --test --import tsx --experimental-test-coverage --test-reporter=lcov --test-reporter-destination=lcov.info -- test/*.ts",
     "doc": "text-runner",
     "fix": "dprint fmt && eslint --fix && sort-package-json --quiet",
     "lint": "dprint check && eslint && sort-package-json --check --quiet",
@@ -40,6 +40,7 @@
     "sort-package-json": "3.0.0",
     "text-runner": "7.1.1",
     "textrun-npm": "0.3.0",
+    "tsx": "4.19.3",
     "typescript": "5.8.2",
     "typescript-eslint": "8.27.0"
   }
