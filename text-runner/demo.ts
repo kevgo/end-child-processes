@@ -25,7 +25,7 @@ export async function demoScript(action: tr.actions.Args) {
   }
 }
 
-/** makes the import statement load the current source code */
+/** makes the import statement load the current source code rather than the published npm module */
 function makeImportRelative(text: string): string {
   return text.replace(
     'import { endChildProcesses } from "end-child-processes"',
