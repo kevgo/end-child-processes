@@ -1,6 +1,6 @@
 {
   "name": "end-child-processes",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Reliably ends all direct and indirect child processes of the current process",
   "homepage": "https://github.com/kevgo/end-child-processes#readme",
   "repository": {
