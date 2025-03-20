@@ -16,13 +16,18 @@ export async function endChildProcesses(): Promise<void> {
     try {
       process.kill(processID)
     } catch (e) {
-      const err = e as NodeJS.ErrnoException
-      if (err.code !== "ESRCH") {
-        throw new Error(
-          `cannot kill process ${processID} (${child.COMMAND}): code: ${typeof err.code}, message: ${err.message}`
-        )
+      if (!isErrNoException(e) || processWasAlreadyFinished(e)) {
+        throw e
       }
     }
   }
   await delay(1)
+}
+
+function isErrNoException(e: unknown): e is NodeJS.ErrnoException {
+  return !!e && typeof e == "object" && e.hasOwnProperty("code")
+}
+
+function processWasAlreadyFinished(e: NodeJS.ErrnoException): boolean {
+  return e.code === "ESRCH"
 }
