@@ -3,7 +3,7 @@ import * as fs from "node:fs"
 import * as tr from "text-runner"
 
 export async function demoScript(action: tr.actions.Args, done: (err: NodeJS.ErrnoException | null) => void) {
-  action.name("verify demo script")
+  action.name("verify demo script in README.md")
   const filePath = "../src/demo.ts"
   // create the test file
   const fileContent = action.region.text()
