@@ -18,7 +18,9 @@ export async function endChildProcesses(): Promise<void> {
     } catch (e) {
       const err = e as NodeJS.ErrnoException
       if (err.code !== "ESRCH") {
-        throw new Error(`cannot kill process ${processID} (${child.COMMAND}): ${(e as Error).message} | ${typeof e}`)
+        throw new Error(
+          `cannot kill process ${processID} (${child.COMMAND}): code: ${typeof err.code}, message: ${err.message}`
+        )
       }
     }
   }
