@@ -4,7 +4,7 @@ import * as tr from "text-runner"
 
 export async function demoScript(action: tr.actions.Args, done: (err: NodeJS.ErrnoException | null) => void) {
   action.name("verify demo script")
-  const filePath = "../src/demo.ts"
+  const filePath = "../dist/test/demo.js"
   // create the test file
   const fileContent = action.region.text()
   fs.writeFile(filePath, fileContent, (err) => {
@@ -25,7 +25,7 @@ export async function demoScript(action: tr.actions.Args, done: (err: NodeJS.Err
         return
       }
       // execute the test file
-      exec(`npm exec tsx ${filePath}`, { cwd: "../src" }, (err, stdout, stderr) => {
+      exec(`npm exec node ${filePath}`, { cwd: "../src" }, (err, stdout, stderr) => {
         const output = stdout + stderr
         if (err || output !== "") {
           if (output) {
