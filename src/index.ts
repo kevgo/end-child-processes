@@ -17,11 +17,11 @@ export async function endChildProcesses(): Promise<void> {
       process.kill(processID)
     } catch (e) {
       console.log(util.inspect(e, true, Infinity))
-      console.log("type:", typeof e)
+      console.log("e type", typeof e)
       const err = e as Error
       // if (err.code === "ESRCH") {
       if (err.message.includes("ESRCH")) {
-        throw new Error(`cannot kill process ${processID} (${child.COMMAND}): ${(e as Error).message}`)
+        throw new Error(`cannot kill process ${processID} (${child.COMMAND}): ${(e as Error).message} | ${typeof e}`)
       }
     }
   }
