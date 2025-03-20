@@ -9,14 +9,11 @@ export async function endChildProcesses(): Promise<void> {
     return
   }
   for (const child of children) {
-    if (child.COMMAND === "ps" || child.COMMAND === "WMIC.exe") {
-      continue
-    }
     const processID = parseInt(child.PID, 10)
     try {
       process.kill(processID)
     } catch (e) {
-      if (!isErrNoException(e) || processWasAlreadyFinished(e)) {
+      if (!isErrNoException(e) || !processWasAlreadyFinished(e)) {
         throw e
       }
     }
