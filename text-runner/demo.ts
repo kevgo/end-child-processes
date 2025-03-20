@@ -1,44 +1,34 @@
 import { exec } from "child_process"
-import * as fs from "node:fs"
+import * as fs from "node:fs/promises"
+import * as path from "path"
 import * as tr from "text-runner"
+import * as util from "util"
+const execa = util.promisify(exec)
 
-export async function demoScript(action: tr.actions.Args, done: (err: NodeJS.ErrnoException | null) => void) {
+export async function demoScript(action: tr.actions.Args) {
   action.name("verify demo script in README.md")
-  const filePath = "../src/demo.ts"
+  const dirPath = "../dist/text-runner"
+  const fileName = "demo.js"
+
   // create the test file
+  await fs.mkdir(dirPath, { recursive: true })
+  const filePath = path.join(dirPath, fileName)
   const fileContent = action.region.text()
-  fs.writeFile(filePath, fileContent, (err) => {
-    if (err) {
-      done(err)
-      return
-    }
-    // type-check the test file
-    exec(`npm exec tsc`, { cwd: ".." }, (err, stdout, stderr) => {
-      const output = stdout + stderr
-      if (err || output !== "") {
-        if (output) {
-          console.log(output)
-        }
-        fs.rm(filePath, () => {
-          done(err ?? new Error("TypeScript check failed"))
-        })
-        return
-      }
-      // execute the test file
-      exec(`npm exec tsx ${filePath}`, { cwd: "../src" }, (err, stdout, stderr) => {
-        const output = stdout + stderr
-        if (err || output !== "") {
-          if (output) {
-            console.log(output)
-          }
-          fs.rm(filePath, () => {
-            done(err ?? new Error("TypeScript run failed"))
-          })
-          return
-        }
-        // cleanup
-        fs.rm(filePath, done)
-      })
-    })
-  })
+  const replaced = makeImportRelative(fileContent)
+  await fs.writeFile(filePath, replaced)
+
+  // execute the test file
+  const { stdout, stderr } = await execa(`node ${fileName}`, { cwd: dirPath })
+  const output = stdout + stderr
+  if (output) {
+    throw new Error(`run produced output: ${output}`)
+  }
+}
+
+/** makes the import statement load the current source code rather than the published npm module */
+function makeImportRelative(text: string): string {
+  return text.replace(
+    'import { endChildProcesses } from "end-child-processes"',
+    'import { endChildProcesses } from "../src/index.js"'
+  )
 }
