@@ -20,7 +20,7 @@ export async function demoScript(action: tr.actions.Args) {
   // execute the test file
   const { stdout, stderr } = await execa(`node ${fileName}`, { cwd: dir })
   const output = stdout + stderr
-  if (output !== "") {
+  if (output) {
     throw new Error(`run produced output: ${output}`)
   }
 }
