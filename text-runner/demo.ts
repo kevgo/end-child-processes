@@ -9,10 +9,11 @@ export async function demoScript(action: tr.actions.Args) {
   await fs.mkdir("../dist/text-runner")
   const filePath = "../dist/test/text-runner/demo.js"
   const fileContent = action.region.text()
-  await fs.writeFile(filePath, fileContent)
+  const replaced = replaceImport(fileContent)
+  await fs.writeFile(filePath, replaced)
 
   // execute the test file
-  exec(`npm exec node ${filePath}`, { cwd: "../src" }, (err, stdout, stderr) => {
+  exec(`node ${filePath}`, { cwd: "../src" }, (err, stdout, stderr) => {
     const output = stdout + stderr
     if (err || output !== "") {
       if (output) {
@@ -26,4 +27,11 @@ export async function demoScript(action: tr.actions.Args) {
     // cleanup
     fs.rm(filePath, done)
   })
+}
+
+function replaceImport(text: string): string {
+  return text.replace(
+    'import { endChildProcesses } from "end-child-processes"',
+    'import { endChildProcesses } from "../src/index.js"'
+  )
 }
