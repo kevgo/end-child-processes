@@ -7,14 +7,14 @@ const execa = util.promisify(exec)
 
 export async function demoScript(action: tr.actions.Args) {
   action.name("verify demo script in README.md")
-
-  // create the test file
   const dir = "../dist/text-runner"
   const fileName = "demo.js"
+
+  // create the test file
   await fs.mkdir(dir, { recursive: true })
   const filePath = path.join(dir, fileName)
   const fileContent = action.region.text()
-  const replaced = replaceImport(fileContent)
+  const replaced = makeImportRelative(fileContent)
   await fs.writeFile(filePath, replaced)
 
   // execute the test file
@@ -25,7 +25,8 @@ export async function demoScript(action: tr.actions.Args) {
   }
 }
 
-function replaceImport(text: string): string {
+/** makes the import statement load the current source code */
+function makeImportRelative(text: string): string {
   return text.replace(
     'import { endChildProcesses } from "end-child-processes"',
     'import { endChildProcesses } from "../src/index.js"'
