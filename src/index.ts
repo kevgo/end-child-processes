@@ -16,6 +16,7 @@ export async function endChildProcesses(): Promise<void> {
     try {
       process.kill(processID)
     } catch (e) {
+      console.log(util.inspect(e, true, Infinity))
       const err = e as Error
       if (!err.message.includes("ESRCH")) {
         throw new Error(`cannot kill process ${processID} (${child.COMMAND}): ${(e as Error).message}`)
