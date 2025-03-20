@@ -10,7 +10,6 @@ const psTreeA = util.promisify(psTree)
 test("end-child-processes", async function() {
   if (process.platform === "win32") {
     await testWindows()
-    console.log("WIN DONE")
   } else {
     await testUnix()
   }
@@ -41,10 +40,7 @@ async function testWindows() {
 }
 
 async function childNames(): Promise<string[]> {
-  let children = await psTreeA(process.pid)
-  if (children == null) {
-    return []
-  }
+  let children = await psTreeA(process.pid) || []
   const allowed = ["ps", "sleep", "cmd.exe"]
   return children.map(child => child.COMMAND).filter(childName => allowed.includes(childName))
 }
