@@ -13,7 +13,7 @@ export async function endChildProcesses(): Promise<void> {
     try {
       process.kill(processID)
     } catch (e) {
-      if (!isErrNoException(e) || processWasAlreadyFinished(e)) {
+      if (!isErrNoException(e) || !processWasAlreadyFinished(e)) {
         throw e
       }
     }
