@@ -9,7 +9,7 @@ export async function endChildProcesses(): Promise<void> {
     return
   }
   for (const child of children) {
-    if (child.COMMAND === "ps") {
+    if (child.COMMAND === "ps" || child.COMMAND === "WMIC.exe") {
       continue
     }
     const processID = parseInt(child.PID, 10)
