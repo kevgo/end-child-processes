@@ -5,7 +5,7 @@ const delay = util.promisify(setTimeout)
 
 export async function endChildProcesses(): Promise<void> {
   const children = await psTreeA(process.pid)
-  if (children == null) {
+  if (!children) {
     return
   }
   for (const child of children) {
