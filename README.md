@@ -35,6 +35,11 @@ await endChildProcesses()
 
 </a>
 
+## How it works
+
+On Windows, this library does not attempt to end the `WMIC.exe` process since it
+terminates on its own.
+
 ## Related work
 
 Dependent on your use case, these other libraries that might also be a good fit
