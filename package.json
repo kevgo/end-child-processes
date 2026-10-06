@@ -28,7 +28,7 @@
     "update": "npm-check-updates -u && npm install"
   },
   "dependencies": {
-    "@fengmk2/ps-tree": "2.0.2"
+    "pidtree": "1.0.0"
   },
   "devDependencies": {
     "@eslint/js": "9.22.0",
