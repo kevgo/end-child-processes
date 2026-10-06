@@ -14,8 +14,9 @@ test("end-child-processes", async function() {
 })
 
 async function testUnix() {
-  // bash and sleep must both be running so indirect children are covered
-  await assertCommandTreeIsEnded("bash -c 'sleep 30'", 3)
+  // `& wait` keeps bash alive, and the trailing `true` keeps the exec shell alive,
+  // so the shell, bash, and sleep are all running and indirect children are covered.
+  await assertCommandTreeIsEnded("bash -c 'sleep 30 & wait'; true", 3)
 }
 
 async function testWindows() {
