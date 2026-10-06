@@ -4,9 +4,9 @@ const delay = util.promisify(setTimeout)
 
 export async function endChildProcesses(): Promise<void> {
   const children = await pidtree(process.pid)
-  for (const processID of children) {
+  for (const childId of children) {
     try {
-      process.kill(processID)
+      process.kill(childId)
     } catch (e) {
       if (!isErrNoException(e) || !processWasAlreadyFinished(e)) {
         throw e
