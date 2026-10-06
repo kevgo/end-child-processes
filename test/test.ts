@@ -38,6 +38,16 @@ async function assertCommandTreeIsEnded(command: string, minimumProcesses: numbe
   }
 }
 
+async function waitForSubtree(rootPid: number | undefined, minimumProcesses: number): Promise<number[]> {
+  const deadline = Date.now() + 2000
+  let subtree = await subtreePids(rootPid)
+  while (subtree.length < minimumProcesses && Date.now() < deadline) {
+    await new Promise(resolve => setTimeout(resolve, 10))
+    subtree = await subtreePids(rootPid)
+  }
+  return subtree
+}
+
 /** PIDs in the subtree of rootPid, including rootPid once it is visible. */
 async function subtreePids(rootPid: number | undefined): Promise<number[]> {
   assert.ok(rootPid)
@@ -54,14 +64,4 @@ async function subtreePids(rootPid: number | undefined): Promise<number[]> {
     if (children) result.push(...children)
   }
   return result
-}
-
-async function waitForSubtree(rootPid: number | undefined, minimumProcesses: number): Promise<number[]> {
-  const deadline = Date.now() + 2000
-  let subtree = await subtreePids(rootPid)
-  while (subtree.length < minimumProcesses && Date.now() < deadline) {
-    await new Promise(resolve => setTimeout(resolve, 10))
-    subtree = await subtreePids(rootPid)
-  }
-  return subtree
 }
