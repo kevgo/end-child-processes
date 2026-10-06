@@ -1,12 +1,10 @@
-import { psTree } from "@fengmk2/ps-tree"
+import { pidtree } from "pidtree"
 import * as util from "util"
-const psTreeA = util.promisify(psTree)
 const delay = util.promisify(setTimeout)
 
 export async function endChildProcesses(): Promise<void> {
-  const children = await psTreeA(process.pid) || []
-  for (const child of children) {
-    const processID = parseInt(child.PID, 10)
+  const children = await pidtree(process.pid)
+  for (const processID of children) {
     try {
       process.kill(processID)
     } catch (e) {
