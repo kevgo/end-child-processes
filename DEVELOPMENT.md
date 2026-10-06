@@ -7,4 +7,5 @@
 To deploy:
 
 - update the version in `package.json` and commit to `main`
+- run `npm install` to update the version in `package-lock.json`
 - run `npm publish`
