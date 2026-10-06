@@ -6,6 +6,8 @@
 
 To deploy:
 
-- update the version in `package.json` and commit to `main`
-- run `npm install` to update the version in `package-lock.json`
+- in a branch:
+  - update the version in `package.json`
+  - run `npm install` to update the version in `package-lock.json`
+  - ship to `main`
 - run `npm publish`
