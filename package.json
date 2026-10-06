@@ -23,7 +23,7 @@
     "prepublishOnly": "npm run build",
     "reset": "rm -rf dist && npm run setup && npm run build",
     "setup": "npm install",
-    "test": " npm run build && npm run fix && npm run lint && npm run unit && npm run doc",
+    "test": " npm run build && npm run fix && npm run lint && npm run unit",
     "unit": "npm run build && node --test dist/test/test.js",
     "update": "npm-check-updates -u && npm install"
   },
